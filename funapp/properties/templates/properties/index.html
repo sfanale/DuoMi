@@ -1,0 +1,36 @@
+{% extends "properties/base.html" %}
+<!-- need to look this up
+{% block breadcrumbs %}
+    <li class="breadcrumb-item"><a href="{% url "movies:home" %}">Home</a></li>
+    <li class="breadcrumb-item active">List</li>
+{% endblock %}
+-->
+{% load static %}
+{% block content %}
+<h1> Index of Recently Added Properties </h1>
+
+{% if latest_property_list %}
+	<div class="container text-center">
+    {% for property in latest_property_list %}
+	<h4><a href="{% url 'properties:detail' property.id %}">{{ property.property_name }}</a><h4>
+		<div class="row">
+			<div class="col-md-6"><a href="{% url 'properties:detail' property.id %}"><img src="{%static 'properties/images/'%}{{property.id}}.jpg" class="logo"></a> </div>
+			<div class="col-md-2">{{property.property_price}}</div>
+			<div class="col-md-2">{{property.property_address}}</div>
+			<div class="col-md-1">{{property.property_state}}</div>
+			<div class="col-md-1"><a href="{% url 'properties:trade' property.id %}">Trade</a></div>
+		</div>
+    {% endfor %}
+	</div>
+{% else %}
+    <p>No properties are available.</p>
+{% endif %}
+{% endblock %}
+<!-- what does this do?
+{% block script %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+
+{% endblock %}
+-->

@@ -1,0 +1,41 @@
+{% extends "properties/base.html" %}
+{% load static %}
+
+
+{% block content %}
+<div class="continer text-left">
+	<h2>{{property.property_name}} Order Form</h2>
+	<a href="{% url 'properties:detail' property.id %}"><img src="{%static 'properties/images/'%}{{property.id}}.jpg" class="logo"></a>
+	<p>This is a description of this property. This form is for trading the rental shares of this property</p>
+</div>
+
+<h2>Placeholder for chart</h2>
+<div class="container text-center">
+<div class="row">
+	<div class="col-md-8">
+		<div class="row">
+			<div class="col-md-2"><h4>Last Price</h4></div>
+			<div class="col-md-2"><h4>Rent Yield</h4></div>
+			<div class="col-md-2"><h4>Total Shares</h4></div>
+			<div class="col-md-2"><h4>Volume</h4></div>
+			<div class="col-md-2"><h4>Property Price</h4></div>
+			<div class="col-md-2"><h4>Total Monthly Rent</h4></div>
+		</div>
+		<div class="row">
+			<div class="col-md-2">{{property.last_price}}</div>
+			<div class="col-md-2">{{property.rent_yield}}</div>
+			<div class="col-md-2">{{property.total_shares}}</div>
+			<div class="col-md-2">{{property.volume}}</div>
+			<div class="col-md-2">{{property.property_price}}</div>
+			<div class="col-md-2">{{property.rent_rate}}</div>
+		</div>
+	</div>
+	<div class="col-md-4">
+		<div clas="row">
+			<div class="col-md-12">Placeholder for Chart</div>
+		</div>
+	</div>
+</div>
+
+
+{% endblock %}

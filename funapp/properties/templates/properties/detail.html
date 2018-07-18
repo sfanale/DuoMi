@@ -1,0 +1,17 @@
+{% extends "properties/base.html" %}
+{% load static %}
+
+
+{% block content %}
+<h1>{{property.property_name}}</h1>
+<ul>
+<li> <img src="{%static 'properties/images/'%}{{property.id}}.jpg" class="logo"></li>
+<li>{{property.property_address}}</li>
+<li>{{property.property_zip}}</li>
+<li>{{property.property_state}}</li>
+<li>{{property.property_city}}</li>
+<li>{{property.property_price}}</li>
+<li>{{property.pub_date}} </li>
+</ul>
+
+{% endblock %}
