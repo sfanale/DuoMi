@@ -3,7 +3,7 @@
 
 
 {% block content %}
-<div class="continer text-left">
+<div class="container text-left">
 	<h2>{{property.property_name}} Order Form</h2>
 	<a href="{% url 'properties:detail' property.id %}"><img src="{%static 'properties/images/'%}{{property.id}}.jpg" class="logo"></a>
 	<p>This is a description of this property. This form is for trading the rental shares of this property</p>
@@ -31,10 +31,11 @@
 		</div>
 	</div>
 	<div class="col-md-4">
-		<div clas="row">
+		<div class="row">
 			<div class="col-md-12">Placeholder for Chart</div>
 		</div>
 	</div>
+</div>
 </div>
 
 

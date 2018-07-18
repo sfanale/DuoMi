@@ -12,7 +12,7 @@
 {% if latest_property_list %}
 	<div class="container text-center">
     {% for property in latest_property_list %}
-	<h4><a href="{% url 'properties:detail' property.id %}">{{ property.property_name }}</a><h4>
+	<h4><a href="{% url 'properties:detail' property.id %}">{{ property.property_name }}</a></h4>
 		<div class="row">
 			<div class="col-md-6"><a href="{% url 'properties:detail' property.id %}"><img src="{%static 'properties/images/'%}{{property.id}}.jpg" class="logo"></a> </div>
 			<div class="col-md-2">{{property.property_price}}</div>

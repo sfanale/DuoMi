@@ -4,8 +4,8 @@
 
 {% block content %}
 <h1>{{property.property_name}}</h1>
+<img src="{%static 'properties/images/'%}{{property.id}}.jpg" class="logo">
 <ul>
-<li> <img src="{%static 'properties/images/'%}{{property.id}}.jpg" class="logo"></li>
 <li>{{property.property_address}}</li>
 <li>{{property.property_zip}}</li>
 <li>{{property.property_state}}</li>
