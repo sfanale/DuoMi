@@ -13,19 +13,20 @@ class Property(models.Model):
     property_price = models.IntegerField(default=0)
     pub_date = models.DateTimeField('date published')
 
-    last_price = models.FloatField(default=500)
+    last_price = models.DecimalField(decimal_places=2, max_digits=12)
     volume = models.IntegerField(default=0)
     outstanding_shares = models.IntegerField(default=0.00)
-    rent_rate = models.FloatField(default=1500.00)
-    total_shares = models.FloatField(default=10000.00)
+    rent_rate = models.DecimalField(decimal_places=2, max_digits=12)
+    total_shares = models.DecimalField(decimal_places=2, max_digits=12)
 
     @property
     def rent_yield_per_share(self):
-        return models.F(self.rent_rate) / models.F(self.total_shares)
+        return self.rent_rate / self.total_shares
 
     @property
     def rent_yield(self):
-        return (models.F(self.rent_yield_per_share) / models.F(self.last_price))*1200
+        result = (self.rent_yield_per_share / self.last_price)*1200
+        return float("{0:.2f}".format(result))
 
     def __str__(self):
         return self.property_name
